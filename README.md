@@ -56,7 +56,7 @@ A list of **Free and Open Source Software (FOSS)** container stacks that I handp
 ### Portainer
 Docker management UI - start/stop containers, stacks and volumes without the CLI.
 
-[![Portainer](https://github-readme-stats-fast.vercel.app/api/pin/?username=portainer&repo=portainer&theme=dark)](https://github.com/portainer/portainer)
+[![Portainer](https://github-readme-stats-fast.vercel.app/api/pin/?username=portainer&repo=portainer&theme=dark)](https://github.com/portainer/portainer)<br>
 ![stars](https://badgen.net/github/stars/portainer/portainer) ![forks](https://badgen.net/github/forks/portainer/portainer) ![last commit](https://badgen.net/github/last-commit/portainer/portainer) ![release](https://badgen.net/github/release/portainer/portainer) ![released](https://img.shields.io/github/release-date/portainer/portainer?style=flat&label=released)
 
 **Links:** [Official Site](https://www.portainer.io/) | [Docker Hub](https://hub.docker.com/r/portainer/portainer-ce) | [Docs](https://docs.portainer.io/)
@@ -90,7 +90,7 @@ Somewhat simplistic dual-panel web file manager with in-browser editor and conso
 
 Picked over filestash cause it's text editor is easier to use for casual windows user.
 
-[![Cloud Commander](https://github-readme-stats-fast.vercel.app/api/pin/?username=coderaiser&repo=cloudcmd&theme=dark)](https://github.com/coderaiser/cloudcmd)
+[![Cloud Commander](https://github-readme-stats-fast.vercel.app/api/pin/?username=coderaiser&repo=cloudcmd&theme=dark)](https://github.com/coderaiser/cloudcmd)<br>
 ![stars](https://badgen.net/github/stars/coderaiser/cloudcmd) ![forks](https://badgen.net/github/forks/coderaiser/cloudcmd) ![last commit](https://badgen.net/github/last-commit/coderaiser/cloudcmd) ![release](https://badgen.net/github/release/coderaiser/cloudcmd) ![released](https://img.shields.io/github/release-date/coderaiser/cloudcmd?style=flat&label=released)
 
 **Links:** [Official Site](https://cloudcmd.io/) | [Docker Hub](https://hub.docker.com/r/coderaiser/cloudcmd) | [Docs](https://cloudcmd.io/#documentation)
@@ -122,7 +122,7 @@ services:
 ### Glances
 Terminal UI task monitoring to help you see what processes are eating resources.
 
-[![Glances](https://github-readme-stats-fast.vercel.app/api/pin/?username=nicolargo&repo=glances&theme=dark)](https://github.com/nicolargo/glances)
+[![Glances](https://github-readme-stats-fast.vercel.app/api/pin/?username=nicolargo&repo=glances&theme=dark)](https://github.com/nicolargo/glances)<br>
 ![stars](https://badgen.net/github/stars/nicolargo/glances) ![forks](https://badgen.net/github/forks/nicolargo/glances) ![last commit](https://badgen.net/github/last-commit/nicolargo/glances) ![release](https://badgen.net/github/release/nicolargo/glances) ![released](https://img.shields.io/github/release-date/nicolargo/glances?style=flat&label=released)
 
 **Links:** [Official Site](https://nicolargo.github.io/glances/) | [Docker Hub](https://hub.docker.com/r/nicolargo/glances) | [Docs](https://glances.readthedocs.io/)
@@ -154,7 +154,7 @@ services:
 ### Uptime Kuma
 Uptime monitoring for containers.
 
-[![Uptime Kuma](https://github-readme-stats-fast.vercel.app/api/pin/?username=louislam&repo=uptime-kuma&theme=dark)](https://github.com/louislam/uptime-kuma)
+[![Uptime Kuma](https://github-readme-stats-fast.vercel.app/api/pin/?username=louislam&repo=uptime-kuma&theme=dark)](https://github.com/louislam/uptime-kuma)<br>
 ![stars](https://badgen.net/github/stars/louislam/uptime-kuma) ![forks](https://badgen.net/github/forks/louislam/uptime-kuma) ![last commit](https://badgen.net/github/last-commit/louislam/uptime-kuma) ![release](https://badgen.net/github/release/louislam/uptime-kuma) ![released](https://img.shields.io/github/release-date/louislam/uptime-kuma?style=flat&label=released)
 
 **Links:** [Official Site](https://uptime.kuma.pet/) | [Docker Hub](https://hub.docker.com/r/louislam/uptime-kuma) | [Docs](https://github.com/louislam/uptime-kuma/wiki)
@@ -185,7 +185,7 @@ services:
 ### Homepage
 Start page - one dashboard with links and live widgets for all services.
 
-[![Homepage](https://github-readme-stats-fast.vercel.app/api/pin/?username=gethomepage&repo=homepage&theme=dark)](https://github.com/gethomepage/homepage)
+[![Homepage](https://github-readme-stats-fast.vercel.app/api/pin/?username=gethomepage&repo=homepage&theme=dark)](https://github.com/gethomepage/homepage)<br>
 ![stars](https://badgen.net/github/stars/gethomepage/homepage) ![forks](https://badgen.net/github/forks/gethomepage/homepage) ![last commit](https://badgen.net/github/last-commit/gethomepage/homepage) ![release](https://badgen.net/github/release/gethomepage/homepage) ![released](https://img.shields.io/github/release-date/gethomepage/homepage?style=flat&label=released)
 
 **Links:** [Official Site](https://gethomepage.dev/) | [GitHub Container Registry](https://ghcr.io/gethomepage/homepage) | [Docs](https://gethomepage.dev/installation/)
@@ -221,7 +221,7 @@ services:
 Open-source home automation hub.
 Zigbee dongle is reasonable upgrade, if your homelab not support Zigbee.
 
-[![Home Assistant Core](https://github-readme-stats-fast.vercel.app/api/pin/?username=home-assistant&repo=core&theme=dark)](https://github.com/home-assistant/core)
+[![Home Assistant Core](https://github-readme-stats-fast.vercel.app/api/pin/?username=home-assistant&repo=core&theme=dark)](https://github.com/home-assistant/core)<br>
 ![stars](https://badgen.net/github/stars/home-assistant/core) ![forks](https://badgen.net/github/forks/home-assistant/core) ![last commit](https://badgen.net/github/last-commit/home-assistant/core) ![release](https://badgen.net/github/release/home-assistant/core) ![released](https://img.shields.io/github/release-date/home-assistant/core?style=flat&label=released)
 
 **Links:** [Official Site](https://www.home-assistant.io/) | [GHCR](https://ghcr.io/home-assistant/home-assistant) | [Docs](https://www.home-assistant.io/docs/)
@@ -256,7 +256,7 @@ services:
 ### Jellyfin
 Plex/Netflix alternative - streams movies, TV and music to any device.
 
-[![Jellyfin](https://github-readme-stats-fast.vercel.app/api/pin/?username=jellyfin&repo=jellyfin&theme=dark)](https://github.com/jellyfin/jellyfin)
+[![Jellyfin](https://github-readme-stats-fast.vercel.app/api/pin/?username=jellyfin&repo=jellyfin&theme=dark)](https://github.com/jellyfin/jellyfin)<br>
 ![stars](https://badgen.net/github/stars/jellyfin/jellyfin) ![forks](https://badgen.net/github/forks/jellyfin/jellyfin) ![last commit](https://badgen.net/github/last-commit/jellyfin/jellyfin) ![release](https://badgen.net/github/release/jellyfin/jellyfin) ![released](https://img.shields.io/github/release-date/jellyfin/jellyfin?style=flat&label=released)
 
 **Links:** [Official Site](https://jellyfin.org/) | [Docker Hub](https://hub.docker.com/r/jellyfin/jellyfin) | [Docs](https://jellyfin.org/docs/)
@@ -293,7 +293,7 @@ services:
 ### Audiobookshelf
 Audible alternative - audiobooks and podcasts with per-user progress sync.
 
-[![Audiobookshelf](https://github-readme-stats-fast.vercel.app/api/pin/?username=advplyr&repo=audiobookshelf&theme=dark)](https://github.com/advplyr/audiobookshelf)
+[![Audiobookshelf](https://github-readme-stats-fast.vercel.app/api/pin/?username=advplyr&repo=audiobookshelf&theme=dark)](https://github.com/advplyr/audiobookshelf)<br>
 ![stars](https://badgen.net/github/stars/advplyr/audiobookshelf) ![forks](https://badgen.net/github/forks/advplyr/audiobookshelf) ![last commit](https://badgen.net/github/last-commit/advplyr/audiobookshelf) ![release](https://badgen.net/github/release/advplyr/audiobookshelf) ![released](https://img.shields.io/github/release-date/advplyr/audiobookshelf?style=flat&label=released)
 
 **Links:** [Official Site](https://www.audiobookshelf.org/) | [GHCR](https://ghcr.io/advplyr/audiobookshelf) | [Docs](https://www.audiobookshelf.org/docs)
@@ -328,7 +328,7 @@ services:
 ### Navidrome
 Spotify alternative - streams a self-hosted music library to phone and desktop apps.
 
-[![Navidrome](https://github-readme-stats-fast.vercel.app/api/pin/?username=deluan&repo=navidrome&theme=dark)](https://github.com/deluan/navidrome)
+[![Navidrome](https://github-readme-stats-fast.vercel.app/api/pin/?username=deluan&repo=navidrome&theme=dark)](https://github.com/deluan/navidrome)<br>
 ![stars](https://badgen.net/github/stars/deluan/navidrome) ![forks](https://badgen.net/github/forks/deluan/navidrome) ![last commit](https://badgen.net/github/last-commit/deluan/navidrome) ![release](https://badgen.net/github/release/deluan/navidrome) ![released](https://img.shields.io/github/release-date/deluan/navidrome?style=flat&label=released)
 
 **Links:** [Official Site](https://www.navidrome.org/) | [Docker Hub](https://hub.docker.com/r/deluan/navidrome) | [Docs](https://www.navidrome.org/docs/)
@@ -363,7 +363,7 @@ services:
 ### Explo
 Discover Weekly alternative - suggests new music from listening history.
 
-[![Explo](https://github-readme-stats-fast.vercel.app/api/pin/?username=LumePart&repo=Explo&theme=dark)](https://github.com/LumePart/Explo)
+[![Explo](https://github-readme-stats-fast.vercel.app/api/pin/?username=LumePart&repo=Explo&theme=dark)](https://github.com/LumePart/Explo)<br>
 ![stars](https://badgen.net/github/stars/LumePart/Explo) ![forks](https://badgen.net/github/forks/LumePart/Explo) ![last commit](https://badgen.net/github/last-commit/LumePart/Explo) ![release](https://badgen.net/github/release/LumePart/Explo) ![released](https://img.shields.io/github/release-date/LumePart/Explo?style=flat&label=released)
 
 **Links:** [GitHub Container Registry](https://ghcr.io/lumepart/explo)
@@ -394,7 +394,7 @@ services:
 ### Aurral
 Music discovery that feeds recommended tracks into the music library.
 
-[![Aurral](https://github-readme-stats-fast.vercel.app/api/pin/?username=lklynet&repo=aurral&theme=dark)](https://github.com/lklynet/aurral)
+[![Aurral](https://github-readme-stats-fast.vercel.app/api/pin/?username=lklynet&repo=aurral&theme=dark)](https://github.com/lklynet/aurral)<br>
 ![stars](https://badgen.net/github/stars/lklynet/aurral) ![forks](https://badgen.net/github/forks/lklynet/aurral) ![last commit](https://badgen.net/github/last-commit/lklynet/aurral) ![release](https://badgen.net/github/release/lklynet/aurral) ![released](https://img.shields.io/github/release-date/lklynet/aurral?style=flat&label=released)
 
 **Links:** [GitHub Container Registry](https://ghcr.io/lklynet/aurral)
@@ -428,7 +428,7 @@ services:
 ### Sonarr
 Monitors for new episodes of TV shows and anime, then downloads them automatically.
 
-[![Sonarr](https://github-readme-stats-fast.vercel.app/api/pin/?username=Sonarr&repo=Sonarr&theme=dark)](https://github.com/Sonarr/Sonarr)
+[![Sonarr](https://github-readme-stats-fast.vercel.app/api/pin/?username=Sonarr&repo=Sonarr&theme=dark)](https://github.com/Sonarr/Sonarr)<br>
 ![stars](https://badgen.net/github/stars/Sonarr/Sonarr) ![forks](https://badgen.net/github/forks/Sonarr/Sonarr) ![last commit](https://badgen.net/github/last-commit/Sonarr/Sonarr) ![release](https://badgen.net/github/release/Sonarr/Sonarr) ![released](https://img.shields.io/github/release-date/Sonarr/Sonarr?style=flat&label=released)
 
 **Links:** [Official Site](https://sonarr.tv/) | [Docker Hub](https://hub.docker.com/r/linuxserver/sonarr) | [Docs](https://wiki.servarr.com/sonarr)
@@ -463,7 +463,7 @@ services:
 ### Radarr
 Monitors for movies and downloads them automatically.
 
-[![Radarr](https://github-readme-stats-fast.vercel.app/api/pin/?username=Radarr&repo=Radarr&theme=dark)](https://github.com/Radarr/Radarr)
+[![Radarr](https://github-readme-stats-fast.vercel.app/api/pin/?username=Radarr&repo=Radarr&theme=dark)](https://github.com/Radarr/Radarr)<br>
 ![stars](https://badgen.net/github/stars/Radarr/Radarr) ![forks](https://badgen.net/github/forks/Radarr/Radarr) ![last commit](https://badgen.net/github/last-commit/Radarr/Radarr) ![release](https://badgen.net/github/release/Radarr/Radarr) ![released](https://img.shields.io/github/release-date/Radarr/Radarr?style=flat&label=released)
 
 **Links:** [Official Site](https://radarr.video/) | [Docker Hub](https://hub.docker.com/r/linuxserver/radarr) | [Docs](https://wiki.servarr.com/radarr)
@@ -497,7 +497,7 @@ services:
 ### Lidarr
 Monitors for albums and downloads them automatically.
 
-[![Lidarr](https://github-readme-stats-fast.vercel.app/api/pin/?username=Lidarr&repo=Lidarr&theme=dark)](https://github.com/Lidarr/Lidarr)
+[![Lidarr](https://github-readme-stats-fast.vercel.app/api/pin/?username=Lidarr&repo=Lidarr&theme=dark)](https://github.com/Lidarr/Lidarr)<br>
 ![stars](https://badgen.net/github/stars/Lidarr/Lidarr) ![forks](https://badgen.net/github/forks/Lidarr/Lidarr) ![last commit](https://badgen.net/github/last-commit/Lidarr/Lidarr) ![release](https://badgen.net/github/release/Lidarr/Lidarr) ![released](https://img.shields.io/github/release-date/Lidarr/Lidarr?style=flat&label=released)
 
 **Links:** [Official Site](https://lidarr.audio/) | [Docker Hub](https://hub.docker.com/r/linuxserver/lidarr) | [Docs](https://wiki.servarr.com/lidarr)
@@ -531,7 +531,7 @@ services:
 ### Prowlarr
 Collects indexers and shares their search results with the download automators.
 
-[![Prowlarr](https://github-readme-stats-fast.vercel.app/api/pin/?username=Prowlarr&repo=Prowlarr&theme=dark)](https://github.com/Prowlarr/Prowlarr)
+[![Prowlarr](https://github-readme-stats-fast.vercel.app/api/pin/?username=Prowlarr&repo=Prowlarr&theme=dark)](https://github.com/Prowlarr/Prowlarr)<br>
 ![stars](https://badgen.net/github/stars/Prowlarr/Prowlarr) ![forks](https://badgen.net/github/forks/Prowlarr/Prowlarr) ![last commit](https://badgen.net/github/last-commit/Prowlarr/Prowlarr) ![release](https://badgen.net/github/release/Prowlarr/Prowlarr) ![released](https://img.shields.io/github/release-date/Prowlarr/Prowlarr?style=flat&label=released)
 
 **Links:** [Official Site](https://prowlarr.com/) | [Docker Hub](https://hub.docker.com/r/linuxserver/prowlarr) | [Docs](https://wiki.servarr.com/prowlarr)
@@ -563,7 +563,7 @@ services:
 ### Jackett
 Torrent-indexer proxy that supplies search results to the download automators.
 
-[![Jackett](https://github-readme-stats-fast.vercel.app/api/pin/?username=Jackett&repo=Jackett&theme=dark)](https://github.com/Jackett/Jackett)
+[![Jackett](https://github-readme-stats-fast.vercel.app/api/pin/?username=Jackett&repo=Jackett&theme=dark)](https://github.com/Jackett/Jackett)<br>
 ![stars](https://badgen.net/github/stars/Jackett/Jackett) ![forks](https://badgen.net/github/forks/Jackett/Jackett) ![last commit](https://badgen.net/github/last-commit/Jackett/Jackett) ![release](https://badgen.net/github/release/Jackett/Jackett) ![released](https://img.shields.io/github/release-date/Jackett/Jackett?style=flat&label=released)
 
 **Links:** [Docker Hub](https://hub.docker.com/r/linuxserver/jackett) | [Docs](https://github.com/Jackett/Jackett#readme)
@@ -596,7 +596,7 @@ services:
 ### Jellyseerr
 Request page so others can ask for movies and shows to be added.
 
-[![Jellyseerr](https://github-readme-stats-fast.vercel.app/api/pin/?username=fallenbagel&repo=jellyseerr&theme=dark)](https://github.com/fallenbagel/jellyseerr)
+[![Jellyseerr](https://github-readme-stats-fast.vercel.app/api/pin/?username=fallenbagel&repo=jellyseerr&theme=dark)](https://github.com/fallenbagel/jellyseerr)<br>
 ![stars](https://badgen.net/github/stars/fallenbagel/jellyseerr) ![forks](https://badgen.net/github/forks/fallenbagel/jellyseerr) ![last commit](https://badgen.net/github/last-commit/fallenbagel/jellyseerr) ![release](https://badgen.net/github/release/fallenbagel/jellyseerr) ![released](https://img.shields.io/github/release-date/fallenbagel/jellyseerr?style=flat&label=released)
 
 **Links:** [Official Site](https://github.com/fallenbagel/jellyseerr) | [Docker Hub](https://hub.docker.com/r/fallenbagel/jellyseerr) | [Docs](https://docs.jellyseerr.dev/)
@@ -627,7 +627,7 @@ services:
 ### qBittorrent
 Torrent download client the download automators send their grabs to.
 
-[![qBittorrent](https://github-readme-stats-fast.vercel.app/api/pin/?username=qbittorrent&repo=qBittorrent&theme=dark)](https://github.com/qbittorrent/qBittorrent)
+[![qBittorrent](https://github-readme-stats-fast.vercel.app/api/pin/?username=qbittorrent&repo=qBittorrent&theme=dark)](https://github.com/qbittorrent/qBittorrent)<br>
 ![stars](https://badgen.net/github/stars/qbittorrent/qBittorrent) ![forks](https://badgen.net/github/forks/qbittorrent/qBittorrent) ![last commit](https://badgen.net/github/last-commit/qbittorrent/qBittorrent) ![release](https://badgen.net/github/release/qbittorrent/qBittorrent) ![released](https://img.shields.io/github/release-date/qbittorrent/qBittorrent?style=flat&label=released)
 
 **Links:** [Official Site](https://www.qbittorrent.org/) | [Docker Hub](https://hub.docker.com/r/linuxserver/qbittorrent) | [Docs](https://github.com/qbittorrent/qBittorrent/wiki)
@@ -663,7 +663,7 @@ services:
 ### SABnzbd
 Usenet download client for the download automators.
 
-[![SABnzbd](https://github-readme-stats-fast.vercel.app/api/pin/?username=sabnzbd&repo=sabnzbd&theme=dark)](https://github.com/sabnzbd/sabnzbd)
+[![SABnzbd](https://github-readme-stats-fast.vercel.app/api/pin/?username=sabnzbd&repo=sabnzbd&theme=dark)](https://github.com/sabnzbd/sabnzbd)<br>
 ![stars](https://badgen.net/github/stars/sabnzbd/sabnzbd) ![forks](https://badgen.net/github/forks/sabnzbd/sabnzbd) ![last commit](https://badgen.net/github/last-commit/sabnzbd/sabnzbd) ![release](https://badgen.net/github/release/sabnzbd/sabnzbd) ![released](https://img.shields.io/github/release-date/sabnzbd/sabnzbd?style=flat&label=released)
 
 **Links:** [Official Site](https://sabnzbd.org/) | [Docker Hub](https://hub.docker.com/r/linuxserver/sabnzbd) | [Docs](https://sabnzbd.org/wiki/)
@@ -696,7 +696,7 @@ services:
 ### FlareSolverr
 Gets indexers past Cloudflare so the indexer tools keep working.
 
-[![FlareSolverr](https://github-readme-stats-fast.vercel.app/api/pin/?username=FlareSolverr&repo=FlareSolverr&theme=dark)](https://github.com/FlareSolverr/FlareSolverr)
+[![FlareSolverr](https://github-readme-stats-fast.vercel.app/api/pin/?username=FlareSolverr&repo=FlareSolverr&theme=dark)](https://github.com/FlareSolverr/FlareSolverr)<br>
 ![stars](https://badgen.net/github/stars/FlareSolverr/FlareSolverr) ![forks](https://badgen.net/github/forks/FlareSolverr/FlareSolverr) ![last commit](https://badgen.net/github/last-commit/FlareSolverr/FlareSolverr) ![release](https://badgen.net/github/release/FlareSolverr/FlareSolverr) ![released](https://img.shields.io/github/release-date/FlareSolverr/FlareSolverr?style=flat&label=released)
 
 **Links:** [Docker Hub](https://hub.docker.com/r/flaresolverr/flaresolverr) | [Docs](https://github.com/FlareSolverr/FlareSolverr#readme)
@@ -729,7 +729,7 @@ services:
 ### Readarr
 Monitors for books and audiobooks and downloads them automatically.
 
-[![Readarr](https://github-readme-stats-fast.vercel.app/api/pin/?username=Readarr&repo=Readarr&theme=dark)](https://github.com/Readarr/Readarr)
+[![Readarr](https://github-readme-stats-fast.vercel.app/api/pin/?username=Readarr&repo=Readarr&theme=dark)](https://github.com/Readarr/Readarr)<br>
 ![stars](https://badgen.net/github/stars/Readarr/Readarr) ![forks](https://badgen.net/github/forks/Readarr/Readarr) ![last commit](https://badgen.net/github/last-commit/Readarr/Readarr) ![release](https://badgen.net/github/release/Readarr/Readarr) ![released](https://img.shields.io/github/release-date/Readarr/Readarr?style=flat&label=released)
 
 **Links:** [Official Site](https://readarr.com/) | [Docker Hub](https://hub.docker.com/r/linuxserver/readarr) | [Docs](https://wiki.servarr.com/readarr)
@@ -764,7 +764,7 @@ services:
 ### Kavita
 Kindle alternative - reads manga, comics and e-books in the browser.
 
-[![Kavita](https://github-readme-stats-fast.vercel.app/api/pin/?username=Kareadita&repo=Kavita&theme=dark)](https://github.com/Kareadita/Kavita)
+[![Kavita](https://github-readme-stats-fast.vercel.app/api/pin/?username=Kareadita&repo=Kavita&theme=dark)](https://github.com/Kareadita/Kavita)<br>
 ![stars](https://badgen.net/github/stars/Kareadita/Kavita) ![forks](https://badgen.net/github/forks/Kareadita/Kavita) ![last commit](https://badgen.net/github/last-commit/Kareadita/Kavita) ![release](https://badgen.net/github/release/Kareadita/Kavita) ![released](https://img.shields.io/github/release-date/Kareadita/Kavita?style=flat&label=released)
 
 **Links:** [Official Site](https://www.kavitareader.com/) | [Docker Hub](https://hub.docker.com/r/jvmilazz0/kavita) | [Docs](https://wiki.kavitareader.com/)
@@ -799,7 +799,7 @@ services:
 ### Immich Stack
 Google Photos alternative - backs up photos/videos with face and object search.
 
-[![Immich](https://github-readme-stats-fast.vercel.app/api/pin/?username=immich-app&repo=immich&theme=dark)](https://github.com/immich-app/immich)
+[![Immich](https://github-readme-stats-fast.vercel.app/api/pin/?username=immich-app&repo=immich&theme=dark)](https://github.com/immich-app/immich)<br>
 ![stars](https://badgen.net/github/stars/immich-app/immich) ![forks](https://badgen.net/github/forks/immich-app/immich) ![last commit](https://badgen.net/github/last-commit/immich-app/immich) ![release](https://badgen.net/github/release/immich-app/immich) ![released](https://img.shields.io/github/release-date/immich-app/immich?style=flat&label=released)
 
 **Links:** [Official Site](https://immich.app/) | [GitHub Container Registry](https://ghcr.io/immich-app/immich-server) | [Docs](https://immich.app/docs)
@@ -881,7 +881,7 @@ networks:
 ### gPhotos2Immich
 Pulls Google Photos albums into the self-hosted photo library automatically.
 
-[![gPhotos2Immich](https://github-readme-stats-fast.vercel.app/api/pin/?username=warreth&repo=gPhotos2Immich&theme=dark)](https://github.com/warreth/gPhotos2Immich)
+[![gPhotos2Immich](https://github-readme-stats-fast.vercel.app/api/pin/?username=warreth&repo=gPhotos2Immich&theme=dark)](https://github.com/warreth/gPhotos2Immich)<br>
 ![stars](https://badgen.net/github/stars/warreth/gPhotos2Immich) ![forks](https://badgen.net/github/forks/warreth/gPhotos2Immich) ![last commit](https://badgen.net/github/last-commit/warreth/gPhotos2Immich) ![release](https://badgen.net/github/release/warreth/gPhotos2Immich) ![released](https://img.shields.io/github/release-date/warreth/gPhotos2Immich?style=flat&label=released)
 
 **Links:** [GitHub Container Registry](https://ghcr.io/warreth/gphotos2immich) | [Docs](https://github.com/warreth/gPhotos2Immich#readme)
@@ -912,7 +912,7 @@ services:
 ### Nextcloud Stack
 Google Drive/Dropbox alternative - files, calendar, contacts and docs.
 
-[![Nextcloud](https://github-readme-stats-fast.vercel.app/api/pin/?username=nextcloud&repo=server&theme=dark)](https://github.com/nextcloud/server)
+[![Nextcloud](https://github-readme-stats-fast.vercel.app/api/pin/?username=nextcloud&repo=server&theme=dark)](https://github.com/nextcloud/server)<br>
 ![stars](https://badgen.net/github/stars/nextcloud/server) ![forks](https://badgen.net/github/forks/nextcloud/server) ![last commit](https://badgen.net/github/last-commit/nextcloud/server) ![release](https://badgen.net/github/release/nextcloud/server) ![released](https://img.shields.io/github/release-date/nextcloud/server?style=flat&label=released)
 
 **Links:** [Official Site](https://nextcloud.com/) | [Docker Hub](https://hub.docker.com/_/nextcloud) | [Docs](https://docs.nextcloud.com/)
@@ -974,7 +974,7 @@ services:
 ### Authelia SSO
 Single sign-on for containers, to login less in each container individually. Still not supported in many places, so not resolve login completely.
 
-[![Authelia](https://github-readme-stats-fast.vercel.app/api/pin/?username=authelia&repo=authelia&theme=dark)](https://github.com/authelia/authelia)
+[![Authelia](https://github-readme-stats-fast.vercel.app/api/pin/?username=authelia&repo=authelia&theme=dark)](https://github.com/authelia/authelia)<br>
 ![stars](https://badgen.net/github/stars/authelia/authelia) ![forks](https://badgen.net/github/forks/authelia/authelia) ![last commit](https://badgen.net/github/last-commit/authelia/authelia) ![release](https://badgen.net/github/release/authelia/authelia) ![released](https://img.shields.io/github/release-date/authelia/authelia?style=flat&label=released)
 
 **Links:** [Official Site](https://www.authelia.com/) | [Docker Hub](https://hub.docker.com/r/authelia/authelia) | [Docs](https://www.authelia.com/docs/)
@@ -1007,7 +1007,7 @@ services:
 ### Caddy Reverse Proxy
 Reverse proxy that gives services domains and automatic HTTPS.
 
-[![Caddy](https://github-readme-stats-fast.vercel.app/api/pin/?username=caddyserver&repo=caddy&theme=dark)](https://github.com/caddyserver/caddy)
+[![Caddy](https://github-readme-stats-fast.vercel.app/api/pin/?username=caddyserver&repo=caddy&theme=dark)](https://github.com/caddyserver/caddy)<br>
 ![stars](https://badgen.net/github/stars/caddyserver/caddy) ![forks](https://badgen.net/github/forks/caddyserver/caddy) ![last commit](https://badgen.net/github/last-commit/caddyserver/caddy) ![release](https://badgen.net/github/release/caddyserver/caddy) ![released](https://img.shields.io/github/release-date/caddyserver/caddy?style=flat&label=released)
 
 **Links:** [Official Site](https://caddyserver.com/) | [Docker Hub](https://hub.docker.com/_/caddy) | [Docs](https://caddyserver.com/docs/)
@@ -1042,7 +1042,7 @@ services:
 ### Backrest (Restic Web UI)
 Web UI for Restic backups - schedules, retention and restores.
 
-[![Backrest](https://github-readme-stats-fast.vercel.app/api/pin/?username=garethgeorge&repo=backrest&theme=dark)](https://github.com/garethgeorge/backrest)
+[![Backrest](https://github-readme-stats-fast.vercel.app/api/pin/?username=garethgeorge&repo=backrest&theme=dark)](https://github.com/garethgeorge/backrest)<br>
 ![stars](https://badgen.net/github/stars/garethgeorge/backrest) ![forks](https://badgen.net/github/forks/garethgeorge/backrest) ![last commit](https://badgen.net/github/last-commit/garethgeorge/backrest) ![release](https://badgen.net/github/release/garethgeorge/backrest) ![released](https://img.shields.io/github/release-date/garethgeorge/backrest?style=flat&label=released)
 
 **Links:** [Official Site](https://github.com/garethgeorge/backrest) | [Docker Hub](https://hub.docker.com/r/garethgeorge/backrest) | [Docs](https://github.com/garethgeorge/backrest#documentation)
