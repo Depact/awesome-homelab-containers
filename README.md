@@ -40,7 +40,6 @@ A list of **Free and Open Source Software (FOSS)** container stacks that I handp
     - [SABnzbd](#sabnzbd)
     - [FlareSolverr](#flaresolverr)
   - [📚 Books, Audiobooks \& Manga](#-books-audiobooks--manga)
-    - [Readarr](#readarr)
     - [Kavita](#kavita)
   - [📸 Photos, Cloud \& Sync](#-photos-cloud--sync)
     - [Immich Stack](#immich-stack)
@@ -127,6 +126,7 @@ services:
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
@@ -322,6 +322,10 @@ services:
       - ${CONFIG_ROOT}/homeassistant:/config
       - /etc/localtime:/etc/localtime:ro
       - /run/dbus:/run/dbus:ro
+    devices:
+      # Way to provide to container Zigbee dongle.
+      # List yours devices with: ls -l /dev/serial/by-id/
+      - /dev/serial/by-id/usb-Itead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_V2_-if00-port0:/dev/ttyUSB0
     ports:
       - "8123:8123"
     networks:
@@ -514,6 +518,7 @@ services:
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
@@ -848,43 +853,6 @@ services:
 ---
 
 ## 📚 Books, Audiobooks & Manga
-
-### Readarr
-Monitors for books and audiobooks and downloads them automatically.
-
-![last commit](https://badgen.net/github/last-commit/Readarr/Readarr) ![released](https://img.shields.io/github/release-date/Readarr/Readarr?style=flat&label=released)
-
-[![Readarr](https://github-readme-stats-fast.vercel.app/api/pin/?username=Readarr&repo=Readarr&theme=dark)](https://github.com/Readarr/Readarr)
-
-**Links:** [Official Site](https://readarr.com/) | [Docker Hub](https://hub.docker.com/r/linuxserver/readarr) | [Docs](https://wiki.servarr.com/readarr)
-
-<details>
-<summary>Docker Compose Example</summary>
-
-```yaml
-services:
-  readarr:
-    image: lscr.io/linuxserver/readarr:develop
-    container_name: readarr
-    restart: unless-stopped
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-    volumes:
-      - ${CONFIG_ROOT}/readarr:/config
-      - ${DATA_ROOT}/books:/books
-      - ${MEDIA_ROOT}/audiobooks:/audiobooks
-      - ${DATA_ROOT}/downloads:/downloads
-    ports:
-      - "127.0.0.1:8787:8787"
-    networks:
-      - homelab_net
-```
-
-</details>
-
----
 
 ### Kavita
 
@@ -1285,6 +1253,7 @@ services:
 ## 💾 Backup & Disaster Recovery
 
 ### Backrest (Restic Web UI)
+
 Backups - schedules, retention and restores.
 
 ![last commit](https://badgen.net/github/last-commit/garethgeorge/backrest) ![released](https://img.shields.io/github/release-date/garethgeorge/backrest?style=flat&label=released)
