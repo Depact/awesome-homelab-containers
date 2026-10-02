@@ -1189,16 +1189,6 @@ services:
 
 </details>
 
-Notes, mostly from getting it wrong:
-
-- I run this as a host systemd service reading `/etc/cloudflared/config.yml` rather than as a container, because the tunnel has to be up before anything else it fronts.
-- One hostname per app. That is the unit Cloudflare Access policies are defined against.
-- A path prefix is not an option here. The tunnel cannot strip one, so anything that needs `/something/` as its base URL belongs on the Caddy side, not here.
-- Access on a free account allows exactly one application per hostname and **does not support the `path` field** (error 409 `11010`). A `bypass` policy also needs a non-empty `include`, for example `{"include":[{"everyone":{}}]}`.
-- Cloudflare Access cannot delegate to Authelia as its IdP while `browser_check = on`, because the check itself trips error 1010. It needs a WAF skip rule.
-- `PATCH` on an Access application is not usable (400 with an empty body). Edit the policy with `PUT` instead.
-- Leave a hostname out of Access and it is simply public. That is fine for a photo gallery and not fine for a file browser. Decide per app, on purpose.
-
 ---
 
 ## 💾 Storage & Drive Health
