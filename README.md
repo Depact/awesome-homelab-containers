@@ -969,8 +969,6 @@ volumes:
   model-cache:
 ```
 
-</details>
-
 Config lives in a sibling `.env`, not inline `environment:` blocks:
 
 ```ini
@@ -982,14 +980,7 @@ DB_PASSWORD=change-me
 DB_DATABASE_NAME=immich
 ```
 
-Notes:
-
-- The old `tensorchord/pgvecto-rs:pg14-v0.2.0` and `redis:6.2-alpine` images are gone. Upstream moved to vectorchord in the `ghcr.io/immich-app/postgres` image and to Valkey 9, and it renamed the services to plain `database` and `redis`.
-- `DB_HOSTNAME` and `REDIS_HOSTNAME` no longer exist. The server discovers both services over the compose network.
-- The compose on `main` tracks main, not the latest release. Pin `IMMICH_VERSION` and take the file from `https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml`.
-- Pin the database and redis by `sha256:` digest in the compose file, then let WUD tag-pin them. Digest watching on a pinned database is how you turn a scheduled backup into a crash loop.
-- Machine learning URLs are **not** environment variables. They live in the database: table `system_metadata`, key `system-config`, path `machineLearning.urls`. The `value` column is `jsonb`, so do not cast it `::text` or the update silently no-ops.
-- Immich is CPU capped rather than limited in compose (`docker update --cpus=`), because the server and ML container fight over the same six cores. Reapply after any recreate.
+</details>
 
 ---
 
