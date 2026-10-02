@@ -18,6 +18,7 @@ A list of **Free and Open Source Software (FOSS)** container stacks that I handp
     - [Cloud Commander](#cloud-commander)
     - [Glances](#glances)
     - [Uptime Kuma](#uptime-kuma)
+    - [WUD (What's Up Docker)](#wud-whats-up-docker)
   - [📊 Dashboard](#-dashboard)
     - [Homepage](#homepage)
   - [🏠 Home Automation](#-home-automation)
@@ -48,6 +49,10 @@ A list of **Free and Open Source Software (FOSS)** container stacks that I handp
   - [🔒 Authentication, Reverse Proxy \& Ingress](#-authentication-reverse-proxy--ingress)
     - [Authelia SSO](#authelia-sso)
     - [Caddy Reverse Proxy](#caddy-reverse-proxy)
+  - [🌐 Remote Access \& Ingress](#-remote-access--ingress)
+    - [Cloudflare Tunnel](#cloudflare-tunnel)
+  - [💾 Storage \& Drive Health](#-storage--drive-health)
+    - [Scrutiny](#scrutiny)
   - [💾 Backup \& Disaster Recovery](#-backup--disaster-recovery)
     - [Backrest (Restic Web UI)](#backrest-restic-web-ui)
 
@@ -62,7 +67,6 @@ Docker management UI - start/stop containers, stacks and volumes without the CLI
 ![last commit](https://badgen.net/github/last-commit/portainer/portainer) ![released](https://img.shields.io/github/release-date/portainer/portainer?style=flat&label=released)
 
 [![Portainer](https://github-readme-stats-fast.vercel.app/api/pin/?username=portainer&repo=portainer&theme=dark)](https://github.com/portainer/portainer)
-
 
 **Links:** [Official Site](https://www.portainer.io/) | [Docker Hub](https://hub.docker.com/r/portainer/portainer-ce) | [Docs](https://docs.portainer.io/)
 
@@ -86,11 +90,13 @@ services:
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
 
 ### Cloud Commander
+
 Somewhat simplistic dual-panel web file manager with in-browser editor and console support.
 
 Picked over filestash cause it's text editor is easier to use for casual windows user.
@@ -98,7 +104,6 @@ Picked over filestash cause it's text editor is easier to use for casual windows
 ![last commit](https://badgen.net/github/last-commit/coderaiser/cloudcmd) ![released](https://img.shields.io/github/release-date/coderaiser/cloudcmd?style=flat&label=released)
 
 [![Cloud Commander](https://github-readme-stats-fast.vercel.app/api/pin/?username=coderaiser&repo=cloudcmd&theme=dark)](https://github.com/coderaiser/cloudcmd)
-
 
 **Links:** [Official Site](https://cloudcmd.io/) | [Docker Hub](https://hub.docker.com/r/coderaiser/cloudcmd) | [Docs](https://cloudcmd.io/#documentation)
 
@@ -127,6 +132,7 @@ services:
 ---
 
 ### Glances
+
 Terminal UI task monitoring to help you see what processes are eating resources.
 
 ![last commit](https://badgen.net/github/last-commit/nicolargo/glances) ![released](https://img.shields.io/github/release-date/nicolargo/glances?style=flat&label=released)
@@ -155,12 +161,14 @@ services:
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
 
 ### Uptime Kuma
-Uptime monitoring for containers.
+
+Uptime statistics for containers. No notification channel, so when something breaks, you're probably will know when it did, but not notify when it happens.
 
 ![last commit](https://badgen.net/github/last-commit/louislam/uptime-kuma) ![released](https://img.shields.io/github/release-date/louislam/uptime-kuma?style=flat&label=released)
 
@@ -185,6 +193,64 @@ services:
     networks:
       - homelab_net
 ```
+
+</details>
+
+---
+
+### WUD (What's Up Docker)
+
+Critical thing. Watches your docker compose files for new image tags and updates them on a schedule. You're might not think you need it, but you likely to find out you do if you have other containers.
+
+![last commit](https://badgen.net/github/last-commit/getwud/wud) ![released](https://img.shields.io/github/release-date/getwud/wud?style=flat&label=released)
+
+[![WUD](https://github-readme-stats-fast.vercel.app/api/pin/?username=getwud&repo=wud&theme=dark)](https://github.com/getwud/wud)
+
+**Links:** [Official Site](https://getwd.org/) | [Docker Hub](https://hub.docker.com/r/getwud/wud) | [Docs](https://getwd.org/docs)
+
+<details>
+<summary>Docker Compose Example</summary>
+
+```yaml
+services:
+  wud:
+    image: getwud/wud:9.2.0
+    container_name: wud
+    restart: unless-stopped
+    environment:
+      - TZ=${TZ}
+      - WUD_WATCHER_LOCAL_CRON=0 4 * * *
+      - WUD_WATCHER_WATCHALL=true
+      - WUD_AUTO_UPDATE_LABEL=true
+      - WUD_AUTO_UPDATE_MODE=batch
+      - WUD_AUTO_UPDATE_ONCE=false
+      - WUD_AUTO_UPDATE_PRUNE=true
+      - WUD_AUTO_UPDATE_BACKUP=true
+      - WUD_SELFUPDATE=true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ${CONFIG_ROOT}/wud:/store
+    ports:
+      - "127.0.0.1:3003:3000"
+    networks:
+      - homelab_net
+```
+
+Exclusions and tag pins go in `wud.watch.include` / `wud.watch.exclude` labels on each service:
+
+```yaml
+labels:
+  - wud.watch.digest=true
+  - wud.tag.include='^v3\.2\.4$'
+```
+
+**Rules learned the hard way**
+
+- `wud.watch.digest=true` is mandatory on any floating tag (`:latest`, `:stable`), otherwise there is nothing for WUD to compare against. Those tags are extremely common.
+- Never put it on a pinned tag. I had issues with dependency `postgres:16-alpine` getting update to `postgres:18-alpine` and crash-looping Nextcloud container. Not fun.
+- `ONCE=true` is the shipped default and it silently turns unattended updates off. Set it to `false`.
+- Stop WUD before hand-editing a docker compose file it is updating, or it will re-apply its own version over your change.
+
 </details>
 
 ---
@@ -192,6 +258,7 @@ services:
 ## 📊 Dashboard
 
 ### Homepage
+
 Start page - one dashboard with links and live widgets for all services.
 
 ![last commit](https://badgen.net/github/last-commit/gethomepage/homepage) ![released](https://img.shields.io/github/release-date/gethomepage/homepage?style=flat&label=released)
@@ -221,6 +288,7 @@ services:
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
@@ -228,6 +296,7 @@ services:
 ## 🏠 Home Automation
 
 ### Home Assistant
+
 Open-source home automation hub.
 Zigbee dongle is reasonable upgrade, if your homelab not support Zigbee.
 
@@ -258,6 +327,7 @@ services:
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
@@ -265,6 +335,7 @@ services:
 ## 🎬 Media Streaming & Libraries
 
 ### Jellyfin
+
 Plex/Netflix alternative - streams movies, TV and music to any device.
 
 ![last commit](https://badgen.net/github/last-commit/jellyfin/jellyfin) ![released](https://img.shields.io/github/release-date/jellyfin/jellyfin?style=flat&label=released)
@@ -298,11 +369,13 @@ services:
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
 
 ### Audiobookshelf
+
 Audible alternative - audiobooks and podcasts with per-user progress sync.
 
 ![last commit](https://badgen.net/github/last-commit/advplyr/audiobookshelf) ![released](https://img.shields.io/github/release-date/advplyr/audiobookshelf?style=flat&label=released)
@@ -334,11 +407,13 @@ services:
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
 
 ### Navidrome
+
 Spotify alternative - streams a self-hosted music library to phone and desktop apps.
 
 ![last commit](https://badgen.net/github/last-commit/deluan/navidrome) ![released](https://img.shields.io/github/release-date/deluan/navidrome?style=flat&label=released)
@@ -370,11 +445,13 @@ services:
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
 
 ### Explo
+
 Discover Weekly alternative - suggests new music from listening history.
 
 ![last commit](https://badgen.net/github/last-commit/LumePart/Explo) ![released](https://img.shields.io/github/release-date/LumePart/Explo?style=flat&label=released)
@@ -402,11 +479,13 @@ services:
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
 
 ### Aurral
+
 Music discovery that feeds recommended tracks into the music library.
 
 ![last commit](https://badgen.net/github/last-commit/lklynet/aurral) ![released](https://img.shields.io/github/release-date/lklynet/aurral?style=flat&label=released)
@@ -442,9 +521,10 @@ services:
 ## ⬇️ Automation & Downloaders
 
 ### Sonarr
+
 Monitors for new episodes of TV shows and anime, then downloads them automatically.
 
-![last commit](https://badgen.net/github/last-commit/sonarr/sonarr) ![released](https://img.shields.io/github/release-date/Sonarr/Sonarr?style=flat&label=released)
+![last commit](https://badgen.net/github/last-commit/Sonarr/Sonarr) ![released](https://img.shields.io/github/release-date/Sonarr/Sonarr?style=flat&label=released)
 
 [![Sonarr](https://github-readme-stats-fast.vercel.app/api/pin/?username=Sonarr&repo=Sonarr&theme=dark)](https://github.com/Sonarr/Sonarr)
 
@@ -473,14 +553,16 @@ services:
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
 
 ### Radarr
+
 Monitors for movies and downloads them automatically.
 
-![last commit](https://badgen.net/github/last-commit/radarr/radarr) ![released](https://img.shields.io/github/release-date/Radarr/Radarr?style=flat&label=released)
+![last commit](https://badgen.net/github/last-commit/Radarr/Radarr) ![released](https://img.shields.io/github/release-date/Radarr/Radarr?style=flat&label=released)
 
 [![Radarr](https://github-readme-stats-fast.vercel.app/api/pin/?username=Radarr&repo=Radarr&theme=dark)](https://github.com/Radarr/Radarr)
 
@@ -508,14 +590,16 @@ services:
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
 
 ### Lidarr
+
 Monitors for albums and downloads them automatically.
 
-![last commit](https://badgen.net/github/last-commit/lidarr/lidarr) ![released](https://img.shields.io/github/release-date/Lidarr/Lidarr?style=flat&label=released)
+![last commit](https://badgen.net/github/last-commit/Lidarr/Lidarr) ![released](https://img.shields.io/github/release-date/Lidarr/Lidarr?style=flat&label=released)
 
 [![Lidarr](https://github-readme-stats-fast.vercel.app/api/pin/?username=Lidarr&repo=Lidarr&theme=dark)](https://github.com/Lidarr/Lidarr)
 
@@ -543,11 +627,13 @@ services:
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
 
 ### Prowlarr
+
 Collects indexers and shares their search results with the download automators.
 
 ![last commit](https://badgen.net/github/last-commit/prowlarr/prowlarr) ![released](https://img.shields.io/github/release-date/Prowlarr/Prowlarr?style=flat&label=released)
@@ -572,15 +658,17 @@ services:
     volumes:
       - ${CONFIG_ROOT}/prowlarr:/config
     ports:
-      - "127.0.0.1:9696:9696"
+      - "127.0.0.1:9697:9696"
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
 
 ### Jackett
+
 Torrent-indexer proxy that supplies search results to the download automators.
 
 ![last commit](https://badgen.net/github/last-commit/Jackett/Jackett) ![released](https://img.shields.io/github/release-date/Jackett/Jackett?style=flat&label=released)
@@ -602,6 +690,7 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
+      - BasePathOverride=/jackett
     volumes:
       - ${CONFIG_ROOT}/jackett:/config
       - ${DATA_ROOT}/downloads:/downloads
@@ -610,11 +699,13 @@ services:
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
 
 ### Jellyseerr
+
 Request page so others can ask for movies and shows to be added.
 
 ![last commit](https://badgen.net/github/last-commit/fallenbagel/jellyseerr) ![released](https://img.shields.io/github/release-date/fallenbagel/jellyseerr?style=flat&label=released)
@@ -642,11 +733,13 @@ services:
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
 
 ### qBittorrent
+
 Torrent download client the download automators send their grabs to.
 
 ![last commit](https://badgen.net/github/last-commit/qbittorrent/qBittorrent) ![released](https://img.shields.io/github/release-date/qbittorrent/qBittorrent?style=flat&label=released)
@@ -679,11 +772,13 @@ services:
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
 
 ### SABnzbd
+
 Usenet download client for the download automators.
 
 ![last commit](https://badgen.net/github/last-commit/sabnzbd/sabnzbd) ![released](https://img.shields.io/github/release-date/sabnzbd/sabnzbd?style=flat&label=released)
@@ -709,15 +804,17 @@ services:
       - ${CONFIG_ROOT}/sabnzbd:/config
       - ${DATA_ROOT}/downloads:/downloads
     ports:
-      - "127.0.0.1:8085:8080"
+      - "127.0.0.1:9696:8080"
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
 
 ### FlareSolverr
+
 Gets indexers past Cloudflare so the indexer tools keep working.
 
 ![last commit](https://badgen.net/github/last-commit/FlareSolverr/FlareSolverr) ![released](https://img.shields.io/github/release-date/FlareSolverr/FlareSolverr?style=flat&label=released)
@@ -745,6 +842,7 @@ services:
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
@@ -783,11 +881,13 @@ services:
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
 
 ### Kavita
+
 Kindle alternative - reads manga, comics and e-books in the browser.
 
 ![last commit](https://badgen.net/github/last-commit/Kareadita/Kavita) ![released](https://img.shields.io/github/release-date/Kareadita/Kavita?style=flat&label=released)
@@ -817,6 +917,7 @@ services:
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
@@ -824,6 +925,7 @@ services:
 ## 📸 Photos, Cloud & Sync
 
 ### Immich Stack
+
 Google Photos alternative - backs up photos/videos with face and object search.
 
 ![last commit](https://badgen.net/github/last-commit/immich-app/immich) ![released](https://img.shields.io/github/release-date/immich-app/immich?style=flat&label=released)
@@ -838,75 +940,93 @@ Google Photos alternative - backs up photos/videos with face and object search.
 ```yaml
 services:
   immich-server:
-    image: ghcr.io/immich-app/immich-server:release
+    image: ghcr.io/immich-app/immich-server:${IMMICH_VERSION}
     container_name: immich_server
-    restart: unless-stopped
+    restart: always
+    env_file:
+      - .env
     volumes:
-      - ${MEDIA_ROOT}/photos:/usr/src/app/upload
+      - ${UPLOAD_LOCATION}:/data
       - /etc/localtime:/etc/localtime:ro
-    environment:
-      - DB_HOSTNAME=immich_postgres
-      - DB_USERNAME=postgres
-      - DB_PASSWORD=${IMMICH_DB_PASSWORD}
-      - DB_DATABASE_NAME=immich
-      - REDIS_HOSTNAME=immich_redis
     ports:
       - "2283:2283"
     depends_on:
-      - immich-redis
-      - immich-postgres
+      - redis
+      - database
+    healthcheck:
+      disable: false
     networks:
-      - immich_net
       - homelab_net
 
   immich-machine-learning:
-    image: ghcr.io/immich-app/immich-machine-learning:release
+    image: ghcr.io/immich-app/immich-machine-learning:${IMMICH_VERSION}
     container_name: immich_machine_learning
-    restart: unless-stopped
+    restart: always
+    env_file:
+      - .env
     volumes:
-      - ${CONFIG_ROOT}/immich/cache:/cache
-    environment:
-      - DB_HOSTNAME=immich_postgres
-      - DB_USERNAME=postgres
-      - DB_PASSWORD=${IMMICH_DB_PASSWORD}
-      - DB_DATABASE_NAME=immich
-      - REDIS_HOSTNAME=immich_redis
+      - model-cache:/cache
+    healthcheck:
+      disable: false
     networks:
-      - immich_net
+      - homelab_net
 
-  immich-redis:
-    image: redis:6.2-alpine
+  redis:
+    image: docker.io/valkey/valkey:9@sha256:418652cfb58ef879d4978c33553735d7147016032d5aefaa14c828e611eb9dfd
     container_name: immich_redis
-    restart: unless-stopped
+    restart: always
+    healthcheck:
+      test: redis-cli ping | grep -q PONG || exit 1
     networks:
-      - immich_net
+      - homelab_net
 
-  immich-postgres:
-    image: tensorchord/pgvecto-rs:pg14-v0.2.0
+  database:
+    image: ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0@sha256:bcf63357191b76a916ae5eb93464d65c07511da41e3bf7a8416db519b40b1c23
     container_name: immich_postgres
-    restart: unless-stopped
+    restart: always
+    shm_size: 128mb
     environment:
-      - POSTGRES_PASSWORD=${IMMICH_DB_PASSWORD}
-      - POSTGRES_USER=postgres
-      - POSTGRES_DB=immich
-      - POSTGRES_INITDB_ARGS=--data-checksums
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_DB: ${DB_DATABASE_NAME}
+      POSTGRES_INITDB_ARGS: "--data-checksums"
     volumes:
-      - ${CONFIG_ROOT}/immich/postgres:/var/lib/postgresql/data
+      - ${DB_DATA_LOCATION}:/var/lib/postgresql/data
+    healthcheck:
+      disable: false
     networks:
-      - immich_net
+      - homelab_net
 
-networks:
-  immich_net:
-    name: immich_net
-  homelab_net:
-    name: homelab_net
-    external: true
+volumes:
+  model-cache:
 ```
+
 </details>
+
+Config lives in a sibling `.env`, not inline `environment:` blocks:
+
+```ini
+IMMICH_VERSION=v3.2.4
+UPLOAD_LOCATION=/mnt/usb/photos
+DB_DATA_LOCATION=/mnt/usb/immich/postgres
+DB_USERNAME=postgres
+DB_PASSWORD=change-me
+DB_DATABASE_NAME=immich
+```
+
+Notes:
+
+- The old `tensorchord/pgvecto-rs:pg14-v0.2.0` and `redis:6.2-alpine` images are gone. Upstream moved to vectorchord in the `ghcr.io/immich-app/postgres` image and to Valkey 9, and it renamed the services to plain `database` and `redis`.
+- `DB_HOSTNAME` and `REDIS_HOSTNAME` no longer exist. The server discovers both services over the compose network.
+- The compose on `main` tracks main, not the latest release. Pin `IMMICH_VERSION` and take the file from `https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml`.
+- Pin the database and redis by `sha256:` digest in the compose file, then let WUD tag-pin them. Digest watching on a pinned database is how you turn a scheduled backup into a crash loop.
+- Machine learning URLs are **not** environment variables. They live in the database: table `system_metadata`, key `system-config`, path `machineLearning.urls`. The `value` column is `jsonb`, so do not cast it `::text` or the update silently no-ops.
+- Immich is CPU capped rather than limited in compose (`docker update --cpus=`), because the server and ML container fight over the same six cores. Reapply after any recreate.
 
 ---
 
 ### gPhotos2Immich
+
 Pulls Google Photos albums into the self-hosted photo library automatically.
 
 ![last commit](https://badgen.net/github/last-commit/warreth/gPhotos2Immich) ![released](https://img.shields.io/github/release-date/warreth/gPhotos2Immich?style=flat&label=released)
@@ -934,12 +1054,18 @@ services:
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
 
 ### Nextcloud Stack
+
 Google Drive/Dropbox alternative - files, calendar, contacts and docs.
+
+`OVERWRITEWEBROOT` is deliberately **not** set. It only rewrites the URLs Nextcloud generates, it does not move a single file, and if you publish the app through a tunnel that cannot strip a path prefix the result is a login page that 404s every asset. Serve it at the root of its own hostname instead.
+
+The same trap applies to Caddy on the Tailscale side: `handle_path` can strip a prefix, but a bare `redir` is evaluated before any `handle` block and will silently swallow all of them. Always wrap it.
 
 ![last commit](https://badgen.net/github/last-commit/nextcloud/server) ![released](https://img.shields.io/github/release-date/nextcloud/server?style=flat&label=released)
 
@@ -965,7 +1091,6 @@ services:
       - POSTGRES_USER=nextcloud
       - POSTGRES_PASSWORD=${NEXTCLOUD_DB_PASSWORD}
       - REDIS_HOST=nextcloud-redis
-      - OVERWRITEWEBROOT=/nextcloud
       - OVERWRITEPROTOCOL=https
     volumes:
       - ${CONFIG_ROOT}/nextcloud/html:/var/www/html
@@ -976,7 +1101,7 @@ services:
       - homelab_net
 
   nextcloud-db:
-    image: postgres:15-alpine
+    image: postgres:16-alpine
     container_name: nextcloud-db
     restart: unless-stopped
     environment:
@@ -989,12 +1114,13 @@ services:
       - homelab_net
 
   nextcloud-redis:
-    image: redis:alpine
+    image: redis:7-alpine
     container_name: nextcloud-redis
     restart: unless-stopped
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
@@ -1002,6 +1128,7 @@ services:
 ## 🔒 Authentication, Reverse Proxy & Ingress
 
 ### Authelia SSO
+
 Single sign-on for containers, to login less in each container individually. Still not supported in many places, so not resolve login completely.
 
 ![last commit](https://badgen.net/github/last-commit/authelia/authelia) ![released](https://img.shields.io/github/release-date/authelia/authelia?style=flat&label=released)
@@ -1025,17 +1152,19 @@ services:
       - AUTHELIA_STORAGE_ENCRYPTION_KEY=${AUTHELIA_STORAGE_ENCRYPTION_KEY}
       - AUTHELIA_SESSION_SECRET=${AUTHELIA_SESSION_SECRET}
     volumes:
-      - ${CONFIG_ROOT}/authelia:/config
+      - ${CONFIG_ROOT}/authelia/config:/config
     ports:
       - "9091:9091"
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
 
 ### Caddy Reverse Proxy
+
 Reverse proxy that gives services domains and automatic HTTPS.
 
 ![last commit](https://badgen.net/github/last-commit/caddyserver/caddy) ![released](https://img.shields.io/github/release-date/caddyserver/caddy?style=flat&label=released)
@@ -1065,6 +1194,90 @@ services:
     networks:
       - homelab_net
 ```
+
+</details>
+
+---
+
+## 🌐 Remote Access & Ingress
+
+### Cloudflare Tunnel
+
+Outbound-only tunnel that publishes each app on its own `https://<app>.example.top` hostname. Idea is that you buy first level domain for example example.top, and then you can have immich.example.top, nextcloud.example.top etc and access it through internet.
+Good tool to find main is to search by 3 year value on https://tld-list.com/. Helps with providers with wild costs for first year or renewal. Check reviews on provider before getting its domain.
+
+![last commit](https://badgen.net/github/last-commit/cloudflare/cloudflared) ![released](https://img.shields.io/github/release-date/cloudflare/cloudflared?style=flat&label=released)
+
+[![Cloudflared](https://github-readme-stats-fast.vercel.app/api/pin/?username=cloudflare&repo=cloudflared&theme=dark)](https://github.com/cloudflare/cloudflared)
+
+**Links:** [Official Site](https://cloudflare.com/) | [Docker Hub](https://hub.docker.com/r/cloudflare/cloudflared) | [Docs](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/)
+
+<details>
+<summary>Docker Compose Example</summary>
+
+```yaml
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    volumes:
+      - ${CONFIG_ROOT}/cloudflared:/home/nonroot/.cloudflared
+    networks:
+      - homelab_net
+```
+
+</details>
+
+Notes, mostly from getting it wrong:
+
+- I run this as a host systemd service reading `/etc/cloudflared/config.yml` rather than as a container, because the tunnel has to be up before anything else it fronts.
+- One hostname per app. That is the unit Cloudflare Access policies are defined against.
+- A path prefix is not an option here. The tunnel cannot strip one, so anything that needs `/something/` as its base URL belongs on the Caddy side, not here.
+- Access on a free account allows exactly one application per hostname and **does not support the `path` field** (error 409 `11010`). A `bypass` policy also needs a non-empty `include`, for example `{"include":[{"everyone":{}}]}`.
+- Cloudflare Access cannot delegate to Authelia as its IdP while `browser_check = on`, because the check itself trips error 1010. It needs a WAF skip rule.
+- `PATCH` on an Access application is not usable (400 with an empty body). Edit the policy with `PUT` instead.
+- Leave a hostname out of Access and it is simply public. That is fine for a photo gallery and not fine for a file browser. Decide per app, on purpose.
+
+---
+
+## 💾 Storage & Drive Health
+
+### Scrutiny
+
+Web dashboard for hard drive SMART data. Watches the boot SSD and the USB disk holding the restic repository, and tells you which one is about to die.
+
+![last commit](https://badgen.net/github/last-commit/starosdev/scrutiny) ![released](https://img.shields.io/github/release-date/starosdev/scrutiny?style=flat&label=released)
+
+[![Scrutiny](https://github-readme-stats-fast.vercel.app/api/pin/?username=starosdev&repo=scrutiny&theme=dark)](https://github.com/starosdev/scrutiny)
+
+**Links:** [GitHub Container Registry](https://ghcr.io/starosdev/scrutiny) | [Docs](https://github.com/starosdev/scrutiny)
+
+> The original `sethvargo/scrutiny` repository has been **deleted**. `starosdev/scrutiny` is the published fork of the maintained `AnalogJ/scrutiny` line, and that is where the badges and the image point. The LinuxServer image is deprecated and behaves differently in ways that will waste your afternoon.
+
+<details>
+<summary>Docker Compose Example</summary>
+
+```yaml
+services:
+  scrutiny:
+    image: ghcr.io/starosdev/scrutiny:1.9.0-omnibus
+    container_name: scrutiny
+    restart: unless-stopped
+    cap_add:
+      - SYS_ADMIN
+    devices:
+      - /dev/sda:/dev/sda
+      - /dev/sdb:/dev/sdb
+    volumes:
+      - ${CONFIG_ROOT}/scrutiny:/etc/scrutiny
+    ports:
+      - "127.0.0.1:3004:8080"
+    networks:
+      - homelab_net
+```
+
 </details>
 
 ---
@@ -1072,7 +1285,7 @@ services:
 ## 💾 Backup & Disaster Recovery
 
 ### Backrest (Restic Web UI)
-Web UI for Restic backups - schedules, retention and restores.
+Backups - schedules, retention and restores.
 
 ![last commit](https://badgen.net/github/last-commit/garethgeorge/backrest) ![released](https://img.shields.io/github/release-date/garethgeorge/backrest?style=flat&label=released)
 
@@ -1105,6 +1318,7 @@ services:
     networks:
       - homelab_net
 ```
+
 </details>
 
 ---
